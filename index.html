@@ -3,516 +3,515 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CySA+ Proficiency Worksheet</title>
+  <title>AutoOps+ Sales Enablement — Proficiency Worksheet</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --red: #C1272D;
-      --red-h: #A52025;
-      --purple: #6B2D5C;
-      --grad: linear-gradient(90deg, #C1272D, #6B2D5C);
-      --text: #222;
-      --muted: #666;
-      --light: #f5f5f5;
-      --border: #e5e7eb;
-      --white: #fff;
-      --font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      --radius: 8px;
-    }
-
     body {
-      font-family: var(--font);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       font-size: 15px;
-      line-height: 1.65;
-      color: var(--text);
+      line-height: 1.6;
+      color: #222;
       background: #f0f0f0;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── SCREEN LAYOUT ── */
-    .page-wrap {
+    /* ── PAGE HEADER ── */
+    .site-header {
+      background: #F5F5F5;
+      border-bottom: 3px solid #C1272D;
+      padding: 16px 24px;
+    }
+    .site-header-inner {
       max-width: 860px;
       margin: 0 auto;
-      padding: 32px 24px 64px;
-    }
-
-    /* ── STICKY HEADER ── */
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 8px rgba(0,0,0,.06);
-    }
-    .sticky-title { font-size: 13px; font-weight: 700; color: var(--red); }
-    .print-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--red);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 20px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      font-family: var(--font);
-      transition: background 0.15s;
-    }
-    .print-btn:hover { background: var(--red-h); }
-
-    /* ── WORKSHEET CARD ── */
-    .ws-card {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,.08);
-    }
-    .ws-card-header {
-      background: var(--grad);
-      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 8px;
     }
-    .ws-card-title { font-size: 16px; font-weight: 800; color: #fff; }
-    .ws-card-meta { font-size: 13px; color: rgba(255,255,255,.8); }
+    .logo { font-weight: 800; font-size: 18px; color: #C1272D; letter-spacing: -0.3px; }
+    .header-sub { font-size: 13px; color: #888; }
 
-    /* ── LEARNER INFO ── */
-    .learner-row {
-      display: flex;
-      gap: 16px;
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-      background: #fafafa;
+    /* ── MAIN WRAPPER ── */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
     }
-    .learner-field { flex: 1; min-width: 180px; }
-    .learner-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      color: var(--purple);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .learner-input {
+
+    /* ── WORKSHEET STYLES ── */
+    .pw-textarea {
       width: 100%;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 9px 12px;
-      font-family: var(--font);
+      min-height: 80px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 7px;
+      padding: 10px 13px;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       font-size: 14px;
-      color: var(--text);
+      color: #222;
+      resize: vertical;
+      line-height: 1.6;
+      box-sizing: border-box;
       background: #fff;
     }
-    .learner-input:focus { border-color: var(--red); outline: none; }
-    .learner-input[readonly] { background: #f0f0f0; color: var(--muted); }
+    .pw-textarea:focus { outline: none; border-color: #C1272D; }
 
-    /* ── PARTS ── */
-    .ws-body { padding: 0 24px 28px; }
-
-    .part-section {
-      margin-top: 28px;
-    }
-    .part-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--light);
-    }
-    .part-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--grad);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .part-info {}
-    .part-title { font-size: 16px; font-weight: 700; color: var(--text); }
-    .part-meta { font-size: 13px; color: var(--muted); }
-
-    /* ── PROMPTS ── */
-    .prompt-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-    .prompt-head {
-      background: var(--light);
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .prompt-num {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      color: var(--purple);
-      flex-shrink: 0;
-      padding-top: 1px;
-      min-width: 36px;
-    }
-    .prompt-q {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .prompt-scenario {
-      background: #f9fafb;
-      border-bottom: 1px solid var(--border);
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .prompt-scenario strong { color: var(--text); }
-    .prompt-body { padding: 10px 14px; }
-    textarea.ws-ta {
+    .pw-input {
       width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 10px 12px;
-      font-family: var(--font);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 7px;
+      padding: 9px 13px;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       font-size: 14px;
-      color: var(--text);
-      background: #fafafa;
-      resize: vertical;
-      min-height: 90px;
+      color: #222;
       line-height: 1.6;
+      box-sizing: border-box;
+      background: #fff;
     }
-    textarea.ws-ta:focus { border-color: var(--red); outline: none; background: #fff; }
-    textarea.ws-ta.short { min-height: 60px; }
-    input.ws-in {
+    .pw-input:focus { outline: none; border-color: #C1272D; }
+
+    .pw-select {
       width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 10px 12px;
-      font-family: var(--font);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 7px;
+      padding: 9px 13px;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       font-size: 14px;
-      color: var(--text);
-      background: #fafafa;
+      color: #222;
+      background: #fff;
+      box-sizing: border-box;
     }
-    input.ws-in:focus { border-color: var(--red); outline: none; background: #fff; }
 
-    /* ── MATCHING / SEQUENCING ── */
-    .match-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid #f5f5f5;
-      flex-wrap: wrap;
+    .pw-section {
+      margin-bottom: 24px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .match-row:last-child { border-bottom: none; }
-    .match-label { font-size: 13px; flex: 1; min-width: 180px; color: var(--text); }
-    .ws-select {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-family: var(--font);
-      font-size: 13px;
-      color: var(--text);
-      background: #fafafa;
-    }
-    .ws-select:focus { border-color: var(--red); outline: none; }
-
-    /* ── PRINT INSTRUCTIONS ── */
-    .print-instructions {
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      margin-top: 24px;
-      font-size: 14px;
-      color: #166534;
-      line-height: 1.65;
-    }
-    .print-instructions strong { color: #15803d; }
 
     /* ── PRINT STYLES ── */
     @media print {
       body { background: #fff; font-size: 13px; }
-      .sticky-header { display: none !important; }
-      .page-wrap { padding: 0; max-width: 100%; }
-      .ws-card { box-shadow: none; border-radius: 0; }
-      .ws-card-header { border-radius: 0; }
-      .prompt-card { break-inside: avoid; }
-      .part-section { break-inside: avoid; }
-      textarea.ws-ta {
-        border: 1px solid #ccc;
-        min-height: 60px;
-        background: #fff;
-      }
-      .print-instructions { display: none; }
-      .part-section { margin-top: 20px; }
+      .site-header { display: none; }
+      .pw-no-print { display: none !important; }
+      .pw-section { break-inside: avoid; page-break-inside: avoid; box-shadow: none; }
+      .page-wrapper { padding: 0; max-width: 100%; }
+      .print-header { display: block !important; }
+      .pw-textarea, .pw-input { border: 1px solid #ccc; }
     }
+
+    .print-header {
+      display: none;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #C1272D;
+    }
+    .print-header h1 { font-size: 18px; font-weight: 800; color: #222; }
+    .print-header p { font-size: 12px; color: #666; margin-top: 4px; }
   </style>
 </head>
 <body>
 
-  <!-- STICKY HEADER -->
-  <div class="sticky-header">
-    <span class="sticky-title">CySA+ Sales Enablement — Proficiency Worksheet</span>
-    <button class="print-btn" onclick="window.print()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Save as PDF
-    </button>
-  </div>
+  <header class="site-header pw-no-print">
+    <div class="site-header-inner">
+      <span class="logo">CompTIA</span>
+      <span class="header-sub">AutoOps+ Sales Enablement · Proficiency Worksheet</span>
+    </div>
+  </header>
 
-  <div class="page-wrap">
-  <div class="ws-card">
+  <main class="page-wrapper">
 
-    <!-- HEADER -->
-    <div class="ws-card-header">
-      <span class="ws-card-title">CySA+ Sales Enablement — Proficiency Worksheet</span>
-      <span class="ws-card-meta">~15–20 min &nbsp;|&nbsp; 4 Parts</span>
+    <!-- Print-only header -->
+    <div class="print-header">
+      <h1>AutoOps+ Sales Enablement — Proficiency Worksheet</h1>
+      <p>CompTIA · Revenue Enablement · Complete all four parts and submit to your evaluator.</p>
     </div>
 
-    <!-- LEARNER INFO -->
-    <div class="learner-row">
-      <div class="learner-field">
-        <label class="learner-label" for="ws-name">Your Name</label>
-        <input class="learner-input" type="text" id="ws-name" placeholder="First and last name">
+    <div style="font-family:'Inter','Helvetica Neue',Arial,sans-serif;max-width:100%">
+
+      <div style="margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #e5e5e5">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+          letter-spacing:.08em;color:#C1272D;margin-bottom:5px">Lesson 3 · Proficiency Worksheet</div>
+        <div style="font-size:22px;font-weight:800;color:#222;line-height:1.2">
+          AutoOps+ Sales Enablement Proficiency Worksheet</div>
       </div>
-      <div class="learner-field">
-        <label class="learner-label" for="ws-date">Date</label>
-        <input class="learner-input" type="date" id="ws-date">
-      </div>
-      <div class="learner-field">
-        <label class="learner-label">Course</label>
-        <input class="learner-input" type="text" value="CySA+ Sales Enablement" readonly>
-      </div>
-    </div>
+      <p style="font-size:15px;color:#555;line-height:1.7;margin-bottom:14px">
+        Complete all four parts, then download your worksheet as a PDF and submit it to your
+        Revenue Enablement evaluator. Allow 15–20 minutes. All fields save in your browser
+        session — download before closing.</p>
 
-    <div class="ws-body">
-
-      <!-- ══ PART 1 ══ -->
-      <div class="part-section">
-        <div class="part-header">
-          <div class="part-num">1</div>
-          <div class="part-info">
-            <div class="part-title">Product Knowledge</div>
-            <div class="part-meta">5 short-answer prompts &nbsp;·&nbsp; ~3 minutes</div>
-          </div>
+      <!-- Name / Date / Role -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px" class="pw-no-print">
+        <div style="flex:1;min-width:160px">
+          <label style="font-size:11px;font-weight:700;text-transform:uppercase;
+            letter-spacing:.06em;color:#888;display:block;margin-bottom:5px">Your Name</label>
+          <input class="pw-input" type="text" id="pw-name" placeholder="Full name"
+            oninput="document.getElementById('pw-dl-name').textContent=this.value||'Your Name'">
         </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">1.1</span>
-            <span class="prompt-q">Explain the difference between CertMaster Perform and CertMaster Learn. When would you recommend each, and for which customer type?</span>
-          </div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p1q1" placeholder="Your response here..."></textarea></div>
+        <div style="flex:1;min-width:140px">
+          <label style="font-size:11px;font-weight:700;text-transform:uppercase;
+            letter-spacing:.06em;color:#888;display:block;margin-bottom:5px">Date</label>
+          <input class="pw-input" type="date" id="pw-date"
+            oninput="document.getElementById('pw-dl-date').textContent=this.value||'Date'">
         </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">1.2</span>
-            <span class="prompt-q">Name the four CySA+ CS0-004 exam domains and their weights. Which is the largest, and what's new in that domain in V4?</span>
-          </div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p1q2" placeholder="Your response here..."></textarea></div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">1.3</span>
-            <span class="prompt-q">Name three things that are new or significantly expanded in CySA+ V4 that were not in V3. Why does each matter to a customer?</span>
-          </div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p1q3" placeholder="Your response here..."></textarea></div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">1.4</span>
-            <span class="prompt-q">Describe the Learning Progression Model and its three lab stages. Why is this a differentiator in a Government or Enterprise sales conversation?</span>
-          </div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p1q4" placeholder="Your response here..."></textarea></div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">1.5</span>
-            <span class="prompt-q">A Government customer asks why CySA+ specifically meets DoD 8140 requirements. What three facts do you lead with?</span>
-          </div>
-          <div class="prompt-body"><input class="ws-in" type="text" id="p1q5" placeholder="Your response here..."></div>
+        <div style="flex:1;min-width:160px">
+          <label style="font-size:11px;font-weight:700;text-transform:uppercase;
+            letter-spacing:.06em;color:#888;display:block;margin-bottom:5px">Your Role</label>
+          <input class="pw-input" type="text" id="pw-role" placeholder="e.g., Account Executive">
         </div>
       </div>
 
-      <!-- ══ PART 2 ══ -->
-      <div class="part-section">
-        <div class="part-header">
-          <div class="part-num">2</div>
-          <div class="part-info">
-            <div class="part-title">Customer Application</div>
-            <div class="part-meta">3 scenario prompts &nbsp;·&nbsp; ~5 minutes</div>
-          </div>
+      <!-- PART 1 -->
+      <div class="pw-section">
+        <div style="background:#C1272D;padding:13px 18px">
+          <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+            text-transform:uppercase;letter-spacing:.07em">Part 1</span>
+          <span style="font-size:15px;font-weight:800;color:#fff;margin-left:8px">Product Knowledge</span>
         </div>
+        <div style="padding:18px 20px;background:#fff">
 
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">2.1</span>
-            <span class="prompt-q">Government — Write your recommended approach, leading with the most relevant differentiator for this customer.</span>
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#C1272D;margin-bottom:5px">Question 1.1</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              A customer asks whether AutoOps+ includes CertMaster Learn. How do you respond —
+              and how do you redirect the conversation to the right product?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
           </div>
-          <div class="prompt-scenario"><strong>Customer:</strong> Brigadier General Thomas Reyes, Director of Cyber Workforce, U.S. Space Force — responsible for credentialing 45 cybersecurity professionals by Q4 under DoD 8140. Budget approved. Timeline: tight. No vendor preference stated yet.</div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p2q1" placeholder="Your response here..."></textarea></div>
-        </div>
 
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">2.2</span>
-            <span class="prompt-q">Enterprise — How do you respond?</span>
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#C1272D;margin-bottom:5px">Question 1.2</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              A customer asks: "What does AutoOps+ actually cover?" Give a concise 3–4 sentence
+              answer you would use in a real customer conversation.</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
           </div>
-          <div class="prompt-scenario"><strong>Customer:</strong> Marcus Chen, CISO, CloudFirst Technology — cloud-native SaaS company using AWS and GCP. 8-person security team. Marcus asks: "Do you have anything besides CompTIA? We use a lot of cloud-specific tools. Generic certs feel like a waste."</div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p2q2" placeholder="Your response here..."></textarea></div>
-        </div>
 
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">2.3</span>
-            <span class="prompt-q">Enterprise Academic Higher Ed — How do you respond?</span>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#C1272D;margin-bottom:5px">Question 1.3</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              What makes AutoOps+ an "expansion certification" — and how does that format
+              difference translate into a selling point?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
           </div>
-          <div class="prompt-scenario"><strong>Customer:</strong> Dr. James Okafor, Dean of Engineering and Technology, Northshore Community College — 150 cybersecurity students in a two-year AAS program. Dr. Okafor: "CySA+ is a great goal, but most of our students are first-generation, work part-time, and can't afford expensive prep. What's your strategy for access and affordability?"</div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p2q3" placeholder="Your response here..."></textarea></div>
-        </div>
-      </div>
-
-      <!-- ══ PART 3 ══ -->
-      <div class="part-section">
-        <div class="part-header">
-          <div class="part-num">3</div>
-          <div class="part-info">
-            <div class="part-title">Demo &amp; Story Fluency</div>
-            <div class="part-meta">Sequencing, matching &amp; story purpose &nbsp;·&nbsp; ~4 minutes</div>
-          </div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">3.1</span>
-            <span class="prompt-q">Number these demo steps 1 (first) through 5 (last) in the correct order for a 10-minute customer demo.</span>
-          </div>
-          <div class="prompt-body">
-            <div class="match-row">
-              <span class="match-label">Show a Simulation Lab — guided, step-by-step tool practice</span>
-              <select class="ws-select" id="seq1"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">Show a VM Lab — contrast with simulation lab (live environment, no instructions)</span>
-              <select class="ws-select" id="seq2"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">Open with a brief overview statement connecting the product to the customer's specific problem</span>
-              <select class="ws-select" id="seq3"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">Show an Activity (performance-based task mirroring the exam)</span>
-              <select class="ws-select" id="seq4"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">Close with a specific next step connected to the customer's problem</span>
-              <select class="ws-select" id="seq5"><option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            </div>
-          </div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">3.2</span>
-            <span class="prompt-q">Match each customer to the strongest narrative thread.</span>
-          </div>
-          <div class="prompt-body">
-            <div class="match-row">
-              <span class="match-label">A defense contractor credentialing 30 analysts under DoD 8140 by Q4</span>
-              <select class="ws-select" id="match1" style="flex:1;min-width:180px;"><option value="">Select thread...</option><option>Applied Skills</option><option>Vendor-Neutral Coverage</option><option>DoD Compliance</option><option>Hands-On Labs</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">A community college adding CySA+ as a program exit requirement for cybersecurity graduates</span>
-              <select class="ws-select" id="match2" style="flex:1;min-width:180px;"><option value="">Select thread...</option><option>Applied Skills</option><option>Vendor-Neutral Coverage</option><option>DoD Compliance</option><option>Hands-On Labs</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">A financial firm whose analysts failed the exam using self-study materials</span>
-              <select class="ws-select" id="match3" style="flex:1;min-width:180px;"><option value="">Select thread...</option><option>Applied Skills</option><option>Vendor-Neutral Coverage</option><option>DoD Compliance</option><option>Hands-On Labs</option></select>
-            </div>
-            <div class="match-row">
-              <span class="match-label">A cloud-native company using AWS and GCP skeptical of "generic" certifications</span>
-              <select class="ws-select" id="match4" style="flex:1;min-width:180px;"><option value="">Select thread...</option><option>Applied Skills</option><option>Vendor-Neutral Coverage</option><option>DoD Compliance</option><option>Hands-On Labs</option></select>
-            </div>
-          </div>
-        </div>
-
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">3.3</span>
-            <span class="prompt-q">Write a one-sentence Story Purpose for this customer.</span>
-          </div>
-          <div class="prompt-scenario"><strong>Customer:</strong> Sofia Reyes, Director of Security Operations, Apex Healthcare Systems — 18-person security team. Two analysts recently left for other roles. Sofia's priority: upskill remaining team fast, reduce time-to-competency, and improve retention.</div>
-          <div class="prompt-body"><textarea class="ws-ta short" id="p3q3" placeholder="Your Story Purpose statement..."></textarea></div>
         </div>
       </div>
 
-      <!-- ══ PART 4 ══ -->
-      <div class="part-section">
-        <div class="part-header">
-          <div class="part-num">4</div>
-          <div class="part-info">
-            <div class="part-title">Applied Judgment</div>
-            <div class="part-meta">2 complex scenarios &nbsp;·&nbsp; ~5 minutes</div>
-          </div>
+      <!-- PART 2 -->
+      <div class="pw-section">
+        <div style="background:#1E40AF;padding:13px 18px">
+          <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+            text-transform:uppercase;letter-spacing:.07em">Part 2</span>
+          <span style="font-size:15px;font-weight:800;color:#fff;margin-left:8px">Customer Application</span>
         </div>
+        <div style="padding:18px 20px;background:#fff">
+          <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:16px">
+            Complete <strong>2 of the 4 scenarios below</strong> — your own vertical plus one other.
+            Reviewing all four is encouraged for situational awareness.</p>
 
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">4.1</span>
-            <span class="prompt-q">Three-way competitive evaluation (Government) — Write your recommendation and reasoning. Which thread do you lead with, which competitor do you prioritize countering, and why?</span>
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#1E40AF;margin-bottom:6px">Scenario 2.1 — Enterprise</div>
+            <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;
+              padding:12px 16px;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:700;color:#1E40AF;margin-bottom:3px">
+                Chen Wei, Director of Cloud Infrastructure — Apex Logistics Corp.</div>
+              <div style="font-size:13px;color:#555;line-height:1.55">
+                Apex runs a hybrid AWS + on-prem environment with 45 infrastructure engineers.
+                Chen's team is asked to automate provisioning and deployments by Q4 — but only
+                12 engineers have any IaC or scripting experience. Training budget is available.</div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              What is your recommended approach — which product(s), which differentiator to lead
+              with, and how you'd open the conversation?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
           </div>
-          <div class="prompt-scenario"><strong>Situation:</strong> A large federal agency is comparing CySA+ (CertMaster Perform) against Microsoft SC-200 and GIAC GCIA. Requirements: (1) DoD 8140 alignment, (2) Hands-on labs, (3) Proven pass rate data, (4) Cost-effective for 60 analysts, (5) Timeline: decision in 3 weeks.</div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p4q1" placeholder="Your recommendation and reasoning..."></textarea></div>
-        </div>
 
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="prompt-num">4.2</span>
-            <span class="prompt-q">Academic skeptic (Enterprise Academic Higher Ed) — How do you respond? Be specific about what CySA+ provides and how it complements project-based learning — don't oversell.</span>
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#3D6B35;margin-bottom:6px">Scenario 2.2 — Government</div>
+            <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;
+              padding:12px 16px;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:700;color:#3D6B35;margin-bottom:3px">
+                Sandra Reeves, IT Training Coordinator — Defense Health Agency</div>
+              <div style="font-size:13px;color:#555;line-height:1.55">
+                Sandra manages workforce development for 120 IT staff across multiple DHA sites.
+                She's been asked to identify certifications that could support DoD 8140 compliance
+                planning. Budget is available but must be obligated before September 30.</div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              How do you respond to Sandra's 8140 question — and what's your next step to keep
+              this opportunity moving before her budget deadline?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
           </div>
-          <div class="prompt-scenario"><strong>Situation:</strong> A university department chair says: "Our industry advisory board says employers care more about hands-on project experience than credentials. We're considering dropping CySA+ from our program. Convince us we shouldn't."</div>
-          <div class="prompt-body"><textarea class="ws-ta" id="p4q2" placeholder="Your response..."></textarea></div>
+
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#6B2D5C;margin-bottom:6px">Scenario 2.3 — Academic (Higher Ed)</div>
+            <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;
+              padding:12px 16px;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:700;color:#6B2D5C;margin-bottom:3px">
+                Professor Dana Kowalski, IT Program Coordinator — Ridgemont Technical College</div>
+              <div style="font-size:13px;color:#555;line-height:1.55">
+                Dana is building a cloud administration certificate program for working adults
+                (ages 25–45, already employed in IT). She wants a cert employers recognize that
+                students can complete in one semester alongside full-time work.</div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              How do you position AutoOps+ for Dana — and which product or bundle would you
+              recommend for her student profile?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#C45E1A;margin-bottom:6px">Scenario 2.4 — Partner</div>
+            <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;
+              padding:12px 16px;margin-bottom:8px">
+              <div style="font-size:13px;font-weight:700;color:#C45E1A;margin-bottom:3px">
+                Derek Huang, Director of Curriculum — TechPath Training Solutions</div>
+              <div style="font-size:13px;color:#555;line-height:1.55">
+                Derek delivers instructor-led training to enterprise and government clients across
+                multiple cloud environments. He's evaluating AutoOps+ for his catalog but is
+                concerned about how to build ILT curriculum without CertMaster Learn.</div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              How do you address Derek's concern about CertMaster Learn — and what does an
+              AutoOps+ ILT solution look like for his business?</div>
+            <textarea class="pw-textarea" placeholder="Write your response here…"></textarea>
+          </div>
         </div>
       </div>
 
-      <!-- PRINT INSTRUCTIONS -->
-      <div class="print-instructions">
-        <strong>To save your completed worksheet as PDF:</strong> Click the <strong>Save as PDF</strong> button at the top of the page, or press <strong>Ctrl+P</strong> (Windows) / <strong>Cmd+P</strong> (Mac) and select "Save as PDF" from the printer menu.
+      <!-- PART 3 -->
+      <div class="pw-section">
+        <div style="background:#6B2D5C;padding:13px 18px">
+          <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+            text-transform:uppercase;letter-spacing:.07em">Part 3</span>
+          <span style="font-size:15px;font-weight:800;color:#fff;margin-left:8px">Demo &amp; Story Fluency</span>
+        </div>
+        <div style="padding:18px 20px;background:#fff">
+
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#6B2D5C;margin-bottom:5px">Question 3.1 — Feature Sequencing</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:8px;line-height:1.55">
+              Rank the four CertMaster Perform feature types in the order you would demonstrate
+              them to a skeptical enterprise buyer — 1 (first) to 4 (last).</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <select class="pw-select" style="max-width:80px">
+                  <option value="">—</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option>
+                </select>
+                <span style="font-size:14px;color:#333">Interactives</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <select class="pw-select" style="max-width:80px">
+                  <option value="">—</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option>
+                </select>
+                <span style="font-size:14px;color:#333">AI Scenario Activities</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <select class="pw-select" style="max-width:80px">
+                  <option value="">—</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option>
+                </select>
+                <span style="font-size:14px;color:#333">Simulation Labs</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <select class="pw-select" style="max-width:80px">
+                  <option value="">—</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option>
+                </select>
+                <span style="font-size:14px;color:#333">VM Labs</span>
+              </div>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px">
+              Explain your sequencing logic in 2–3 sentences.</div>
+            <textarea class="pw-textarea" style="min-height:60px"
+              placeholder="Write your explanation here…"></textarea>
+          </div>
+
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#6B2D5C;margin-bottom:5px">Question 3.2 — Feature Matching</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:8px;line-height:1.55">
+              Match each customer statement to the CertMaster Perform feature that MOST directly
+              addresses it.</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <div style="flex:1;min-width:220px;font-size:14px;color:#333;font-style:italic">
+                  "My team learns by doing, not watching videos."</div>
+                <select class="pw-select" style="flex:1;min-width:160px">
+                  <option value="">Select feature</option>
+                  <option>Interactives</option><option>AI Scenario Activities</option>
+                  <option>Simulation Labs</option><option>VM Labs</option>
+                </select>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <div style="flex:1;min-width:220px;font-size:14px;color:#333;font-style:italic">
+                  "I want my staff to develop judgment, not just recall answers."</div>
+                <select class="pw-select" style="flex:1;min-width:160px">
+                  <option value="">Select feature</option>
+                  <option>Interactives</option><option>AI Scenario Activities</option>
+                  <option>Simulation Labs</option><option>VM Labs</option>
+                </select>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <div style="flex:1;min-width:220px;font-size:14px;color:#333;font-style:italic">
+                  "We can't provision lab infrastructure for every student."</div>
+                <select class="pw-select" style="flex:1;min-width:160px">
+                  <option value="">Select feature</option>
+                  <option>Interactives</option><option>AI Scenario Activities</option>
+                  <option>Simulation Labs</option><option>VM Labs</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#6B2D5C;margin-bottom:5px">Question 3.3 — Story Framing</div>
+            <div style="font-size:14px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.55">
+              A customer's IT director says: "We need our team to have certs that validate real
+              skills — not just test-taking ability." Using the Story Structure Framework, write
+              a 3–4 sentence product story framing for AutoOps+ in this context. Apply the
+              framework to any vertical you choose.</div>
+            <textarea class="pw-textarea" style="min-height:100px"
+              placeholder="Write your story framing here — include Story Purpose, Narrative Thread, and at least one point with Clear Context…"></textarea>
+          </div>
+        </div>
       </div>
 
-    </div><!-- /ws-body -->
-  </div><!-- /ws-card -->
-  </div><!-- /page-wrap -->
+      <!-- PART 4 -->
+      <div class="pw-section">
+        <div style="background:#3D6B35;padding:13px 18px">
+          <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+            text-transform:uppercase;letter-spacing:.07em">Part 4</span>
+          <span style="font-size:15px;font-weight:800;color:#fff;margin-left:8px">Applied Judgment</span>
+        </div>
+        <div style="padding:18px 20px;background:#fff">
+          <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:16px">
+            Complete <strong>one prompt per vertical</strong> — choose the prompt that matches your
+            primary channel, but review all four for situational and competitive awareness.</p>
+
+          <div style="margin-bottom:18px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#3D6B35;margin-bottom:5px">Scenario 4.1 — Two Buyers, One Meeting</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#1E40AF;margin-bottom:4px">Enterprise Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're meeting with a VP of IT
+                  Operations (cares about day-to-day automation skills) and a CISO (cares about security
+                  automation and compliance). You have 20 minutes and two stakeholders with different
+                  definitions of value. How do you structure your AutoOps+ story to serve both without
+                  losing either?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#3D6B35;margin-bottom:4px">Government Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're meeting with an IT
+                  Training Coordinator (cares about workforce credentialing) and a Contracting Officer
+                  (cares about procurement compliance and approved vendor lists). Same meeting, different
+                  priorities. How do you navigate both?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#6B2D5C;margin-bottom:4px">Academic Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're presenting to a Department
+                  Chair (cares about curriculum fit and employer recognition) and a Dean of Workforce
+                  Development (cares about grant compliance and enrollment impact). How do you frame
+                  AutoOps+ for both in one conversation?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#C45E1A;margin-bottom:4px">Partner Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're presenting to a Partner's
+                  Director of Curriculum (cares about content quality and delivery flexibility) and their
+                  Sales Director (cares about margin and client demand). How do you make the case for
+                  adding AutoOps+ to their catalog?</div>
+              </div>
+            </div>
+            <textarea class="pw-textarea" style="min-height:100px"
+              placeholder="Write your response here — indicate which version you're answering…"></textarea>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+              letter-spacing:.06em;color:#3D6B35;margin-bottom:5px">Scenario 4.2 — Objection Under Pressure</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#1E40AF;margin-bottom:4px">Enterprise Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're two weeks from closing a
+                  40-seat AutoOps+ deal. The training manager calls to say their CFO has asked why they
+                  shouldn't send the team to a 3-day intensive workshop instead — it's cheaper and faster.
+                  The deal is at risk. How do you respond?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#3D6B35;margin-bottom:4px">Government Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">You're close to closing a
+                  government training contract. The procurement officer now says a competing vendor
+                  has claimed their cert already has DoD 8140 approval. How do you respond accurately
+                  without overpromising on AutoOps+ accreditation status?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#6B2D5C;margin-bottom:4px">Academic Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">A curriculum committee has
+                  approved AutoOps+ in principle, but a faculty member now argues that students should
+                  pursue a vendor-specific cert because "employers recognize AWS more than CompTIA."
+                  How do you address this objection through the department chair?</div>
+              </div>
+              <div style="background:#f9f9f9;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px">
+                <div style="font-size:12px;font-weight:700;color:#C45E1A;margin-bottom:4px">Partner Version</div>
+                <div style="font-size:13px;color:#555;line-height:1.55">A partner you've been working
+                  with for months calls to say one of their major clients is pushing back on AutoOps+
+                  because they've heard the cert is "too new" and unproven. The partner is considering
+                  dropping the course from their catalog. How do you keep the relationship and the deal?</div>
+              </div>
+            </div>
+            <textarea class="pw-textarea" style="min-height:100px"
+              placeholder="Write your response here — indicate which version you're answering…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download -->
+      <div class="pw-section">
+        <div style="background:#1a1a2e;padding:13px 18px">
+          <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+            text-transform:uppercase;letter-spacing:.07em">Final Step</span>
+          <span style="font-size:15px;font-weight:800;color:#fff;margin-left:8px">Review &amp; Download</span>
+        </div>
+        <div style="padding:18px 20px;background:#fff">
+          <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:14px">
+            Review your responses above, then download your completed worksheet as a PDF and
+            submit it to your Revenue Enablement evaluator.</p>
+          <div style="background:#1a1a2e;border-radius:8px;padding:16px 20px;
+            display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+            <div>
+              <div style="font-size:14px;font-weight:700;color:#fff">
+                AutoOps+ Sales Enablement Proficiency Worksheet</div>
+              <div style="font-size:12px;color:rgba(255,255,255,.6)">
+                CompTIA · Revenue Enablement ·
+                <span id="pw-dl-name">Your Name</span> ·
+                <span id="pw-dl-date">Date</span>
+              </div>
+            </div>
+            <button onclick="window.print()"
+              style="background:#C1272D;color:#fff;font-size:13px;font-weight:700;
+              padding:10px 22px;border-radius:50px;border:none;cursor:pointer;
+              font-family:'Inter','Helvetica Neue',Arial,sans-serif">Download as PDF</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /inner div -->
+  </main>
 
 </body>
 </html>
